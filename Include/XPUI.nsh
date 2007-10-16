@@ -1,2 +1,4 @@
-!define XPUI_SYSDIR "P:\exui\Contrib\ExperienceUI"
-!include "P:\exui\Contrib\ExperienceUI\XPUI.nsh"
+!ifndef XPUI_SYSDIR
+  !define XPUI_SYSDIR "${NSISDIR}\Contrib\ExperienceUI"
+!endif
+!include "${XPUI_SYSDIR}\XPUI.nsh"
