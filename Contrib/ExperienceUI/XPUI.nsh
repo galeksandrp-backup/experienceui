@@ -676,7 +676,7 @@ ChangeUI all `${XPUI_UI}`
   
   !ifdef XPUI_BGIMAGE
     !insertmacro XPUI_DEFAULT XPUI_BGIMAGE_BMP "${XPUI_SYSDIR}\Skins\Default\BgImage.bmp"
-    !insertmacro XPUI_DEFAULT XPUI_BGIMAGE_UI  "${XPUI_SYSDIR}\UIs\BgUI.exe"
+    !insertmacro XPUI_DEFAULT XPUI_BGIMAGE_UI  "${XPUI_SYSDIR}\UIs\BGui.exe"
     ChangeUI all `${XPUI_BGIMAGE_UI}`
   !endif
 
