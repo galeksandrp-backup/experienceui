@@ -204,7 +204,7 @@ XPUI.ungetlanguage_done:
     !define XPUI_INTERNAL_LANG_INSERTED
   !endif
   
-    !include `${XPUI_SYSDIR}\Language files\${LANGUAGE}.nsh`
+    !include `${XPUI_SYSDIR}\Language Files\${LANGUAGE}.nsh`
   !verbose pop
 !macroend
 
@@ -360,7 +360,7 @@ LangString `${NAME}` ${LANG_${XPUI_LANGNAME}} `${${NAME}}`
 !macro XPUI_LANGUAGEFILE_END
 !insertmacro XPUI_LANGUAGE_CONVERT
 
-!include `${XPUI_SYSDIR}\Language files\Default.nsh`
+!include `${XPUI_SYSDIR}\Language Files\Default.nsh`
   !ifdef XPUI_LANGUAGEFILE_DEFAULT_USED
     !undef XPUI_LANGUAGEFILE_DEFAULT_USED
     !warning `${LANGUAGE} Modern UI language file version doesn't match. Using default English texts for missing strings.`

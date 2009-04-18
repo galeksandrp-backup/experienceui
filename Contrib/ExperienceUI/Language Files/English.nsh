@@ -1,5 +1,5 @@
 ;NSIS ExperienceUI - Language File
-;Compatible with ExperienceUI 1.09ß
+;Compatible with ExperienceUI 1.09ÃŸ
 
 ;Language: English (1033)
 ;By dandaman32

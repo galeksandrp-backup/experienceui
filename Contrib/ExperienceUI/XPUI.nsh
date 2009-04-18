@@ -2,9 +2,9 @@
 ; Macro System and Main Logic
 ; Written by Dan Fuhry
 
-; Copyright © 2004-2006 Dan Fuhry
+; Copyright Â© 2004-2006 Dan Fuhry
 ; Portions written by Joost Verburg
-; Copyright © 2002-2004 Joost Verburg
+; Copyright Â© 2002-2004 Joost Verburg
 
 ; This program is free software; you redistribute and/or modify it
 ; under the terms of the zlib/libpng license.
@@ -47,20 +47,20 @@
 !ifndef XPUI_SILENT
 !echo "\
 +-------------------------------------------------------------------------------------------------+$\n\
-|                                                                             /¯¯|  /¯¯|  /¯¯|    |$\n\
-| |¯¯¯¯¯¯¯|                         _                           |¯|  |¯| |¯| / / | / / | / / |    |$\n\
-| | |¯¯¯¯¯                         |_|                          | |  | | | |  ¯| |  ¯| |  ¯| |    |$\n\
-| |  ¯¯¯|   _  _        ___   ___   _   ___   ____    ____  ___ | |  | | | |   | |   | |   | |    |$\n\
-| | |¯¯¯    \\// |¯¯¯\ / __\ |  _| | | / __\ |  _  \ / __/ / __\| |__| | | |   | |   | |   | |    |$\n\
-| |  ¯¯¯¯¯| //\\ | __/ \___/ |_|   |_| \___/ |_| |_| \___\ \___/\______/ |_|   |_| O |_|   |_|    |$\n\
-|  ¯¯¯¯¯¯¯  ¯  ¯ |_|                                                       [ A better installer ] |$\n\
+|                                                                             /Â¯Â¯|  /Â¯Â¯|  /Â¯Â¯|    |$\n\
+| |Â¯Â¯Â¯Â¯Â¯Â¯Â¯|                         _                           |Â¯|  |Â¯| |Â¯| / / | / / | / / |    |$\n\
+| | |Â¯Â¯Â¯Â¯Â¯                         |_|                          | |  | | | |  Â¯| |  Â¯| |  Â¯| |    |$\n\
+| |  Â¯Â¯Â¯|   _  _        ___   ___   _   ___   ____    ____  ___ | |  | | | |   | |   | |   | |    |$\n\
+| | |Â¯Â¯Â¯    \\// |Â¯Â¯Â¯\ / __\ |  _| | | / __\ |  _  \ / __/ / __\| |__| | | |   | |   | |   | |    |$\n\
+| |  Â¯Â¯Â¯Â¯Â¯| //\\ | __/ \___/ |_|   |_| \___/ |_| |_| \___\ \___/\______/ |_|   |_| O |_|   |_|    |$\n\
+|  Â¯Â¯Â¯Â¯Â¯Â¯Â¯  Â¯  Â¯ |_|                                                       [ A better installer ] |$\n\
 +-------------------------------------------------------------------------------------------------+$\n"
 
 !echo `NSIS ExperienceUI User Interface version ${XPUI_VERSION}   $\n\
-       Copyright © 2004-2005 Dan Fuhry                            $\n\
+       Copyright Â© 2004-2005 Dan Fuhry                            $\n\
                                                                   $\n\
        Portions written by Joost Verburg                          $\n\
-       Copyright © 2002-2004 Joost Verburg                        $\n\
+       Copyright Â© 2002-2004 Joost Verburg                        $\n\
                                                                   $\n\
        XPUI: Processing XPUI code...                       $\n`
 
@@ -246,11 +246,11 @@ Var /GLOBAL XPUI_NOABORTWARNING
 !macro XPUI_CONTROL_SKIN_PAGE HWND
   
   !ifndef XPUI_EXTERNAL_SKINNER
-  !ifndef XPUI_BGIMAGE
-  !insertmacro XPUI_CONTROL_SKIN ${HWND}
-  !else
-  !insertmacro XPUI_CONTROL_SKIN_TRANS ${HWND}
-  !endif
+    !ifndef XPUI_BGIMAGE
+      !insertmacro XPUI_CONTROL_SKIN ${HWND}
+    !else
+      !insertmacro XPUI_CONTROL_SKIN_TRANS ${HWND}
+    !endif
   !endif
   
 !macroend
@@ -621,8 +621,8 @@ ChangeUI all `${XPUI_UI}`
   !insertmacro XPUI_DEFAULT XPUI_HEADER_TEXT_COLOR "${XPUI_TEXT_COLOR}"
   
   ; Icons
-  !insertmacro XPUI_DEFAULT XPUI_ICON `${NSISDIR}\Contrib\Graphics\Icons\XPUI-install.ico`
-  !insertmacro XPUI_DEFAULT XPUI_UNICON `${NSISDIR}\Contrib\Graphics\Icons\XPUI-uninstall.ico`
+  !insertmacro XPUI_DEFAULT XPUI_ICON `${XPUI_SYSDIR}\..\Graphics\Icons\XPUI-install.ico`
+  !insertmacro XPUI_DEFAULT XPUI_UNICON `${XPUI_SYSDIR}\..\Graphics\Icons\XPUI-uninstall.ico`
 
   !ifdef XPUI_ICON
   Icon `${XPUI_ICON}`
@@ -634,7 +634,7 @@ ChangeUI all `${XPUI_UI}`
   
   ; Check bitmap
   !ifndef XPUI_WANSIS
-    !insertmacro XPUI_DEFAULT XPUI_CHECKBITMAP "${NSISDIR}\Contrib\Graphics\Checks\Modern.bmp"
+    !insertmacro XPUI_DEFAULT XPUI_CHECKBITMAP "${NSISDIR}\Contrib\Graphics\Checks\modern.bmp"
     CheckBitmap "${XPUI_CHECKBITMAP}"
   !endif
   
@@ -1115,6 +1115,7 @@ ChangeUI all `${XPUI_UI}`
     !endif
     
     ; Check for msvcr71.dll (alerts user of incompatibility problems on older machines or [in my case] fresh Windows installations)
+    ; FIXME: l10n
     IfFileExists $SYSDIR\msvcr71.dll FoundCRT
       MessageBox MB_OK|MB_ICONEXCLAMATION "Setup failed to load the Windows runtime library msvcr71.dll.  Setup will function, but the visual style will not work.  This is most likely caused by a fresh Windows installation." IDOK NoSkin
     FoundCRT:
@@ -1191,7 +1192,7 @@ ChangeUI all `${XPUI_UI}`
     !undef XPUI_${UN}CUSTOMFUNCTION_GUIINIT
   !endif
   
-  ShowWindow $HWNDPARENT 2
+  ; ShowWindow $HWNDPARENT 2
   
   !insertmacro XPUI_PAGEMODE_POP
 !macroend
