@@ -255,6 +255,14 @@ Var /GLOBAL XPUI_NOABORTWARNING
   
 !macroend
 
+!macro XPUI_CONTROL_SKIN_PAGE_NOTRANS HWND
+  
+  !ifndef XPUI_EXTERNAL_SKINNER
+    !insertmacro XPUI_CONTROL_SKIN ${HWND}
+  !endif
+  
+!macroend
+
 !macro XPUI_PAGECOLOR_INIT ID
 
   Push $XPUI_HWND
@@ -382,20 +390,8 @@ Var /GLOBAL XPUI_NOABORTWARNING
   StrCmp $XPUI_ABORTED 1 `` +2
   Abort
   WriteINIStr `$PLUGINSDIR\${FILE}` `Settings` `RTL` `$(^RTL)`
-  InstallOptions::initDialog /NOUNLOAD `$PLUGINSDIR\${FILE}`
-  Pop $XPUI_HWND
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_HWND
-  LockWindow on
-  StrCpy $XPUI_TEMP2 1199
-  XPUI.loop.setctl.${XPUI_UNIQUEID}:
-  IntOp $XPUI_TEMP2 $XPUI_TEMP2 + 1
-  GetDlgItem $XPUI_TEMP1 $XPUI_HWND $XPUI_TEMP2
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
-  IntCmp $XPUI_TEMP2 ${XPUI_INSTALLOPTIONS_MAXFIELD} `` XPUI.loop.setctl.${XPUI_UNIQUEID}
-  GetDlgItem $XPUI_TEMP1 $HWNDPARENT 1018
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
-  SetBrandingImage /IMGID=1019 /RESIZETOFIT "$PLUGINSDIR\page.bmp"
-  LockWindow off
+
+  !insertmacro XPUI_INSTALLOPTIONS_INITDIALOG `${FILE}`
   InstallOptions::show
   !verbose pop
 !macroend
@@ -407,20 +403,8 @@ Var /GLOBAL XPUI_NOABORTWARNING
   StrCmp $XPUI_ABORTED 1 `` +2
   Abort
   WriteINIStr `$PLUGINSDIR\${FILE}` `Settings` `RTL` `$(^RTL)`
-  InstallOptions::initDialog /NOUNLOAD `$PLUGINSDIR\${FILE}`
-  Pop $XPUI_HWND
-  LockWindow on
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_HWND
-  StrCpy $XPUI_TEMP2 1199
-  XPUI.loop.setctl.${XPUI_UNIQUEID}:
-  IntOp $XPUI_TEMP2 $XPUI_TEMP2 + 1
-  GetDlgItem $XPUI_TEMP1 $XPUI_HWND $XPUI_TEMP2
-  StrCmp $XPUI_TEMP1 0 XPUI.done
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
-  IntCmp $XPUI_TEMP2 ${XPUI_INSTALLOPTIONS_MAXFIELD} XPUI.done.${XPUI_UNIQUEID} XPUI.loop.setctl.${XPUI_UNIQUEID}
-  XPUI.done.${XPUI_UNIQUEID}:
-  SetBrandingImage /IMGID=1019 /RESIZETOFIT "$PLUGINSDIR\page.bmp"
-  LockWindow off
+
+  !insertmacro XPUI_INSTALLOPTIONS_INITDIALOG `${FILE}` 
   InstallOptions::show
   !verbose pop
 !macroend
@@ -436,14 +420,58 @@ Var /GLOBAL XPUI_NOABORTWARNING
   Pop $XPUI_HWND
   LockWindow on
   !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_HWND
-  StrCpy $XPUI_TEMP2 1199
+  
+  Push $R0
+  Push $R1
+  
+  StrCpy $R0 0
+  StrCpy $R1 1199
+  
+  ; $R0 = field count
+  ; $R1 = control count
+  ; $XPUI_TEMP2 = total field count
+  
+  ReadINIStr $XPUI_TEMP2 `$PLUGINSDIR\${FILE}` "Settings" "NumFields"
+  
   XPUI.loop.setctl.${XPUI_UNIQUEID}:
-  IntOp $XPUI_TEMP2 $XPUI_TEMP2 + 1
-  GetDlgItem $XPUI_TEMP1 $XPUI_HWND $XPUI_TEMP2
-  StrCmp $XPUI_TEMP1 0 XPUI.done.${XPUI_UNIQUEID}
-  !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
-  IntCmp $XPUI_TEMP2 ${XPUI_INSTALLOPTIONS_MAXFIELD} XPUI.done.${XPUI_UNIQUEID} XPUI.loop.setctl.${XPUI_UNIQUEID}
-  XPUI.done.${XPUI_UNIQUEID}:
+    
+    IntOp $R0 $R0 + 1
+    IntOp $R1 $R1 + 1
+    
+    ReadINIStr $XPUI_TEMP1 `$PLUGINSDIR\${FILE}` "Field $R0" "Type"
+    StrCmp $XPUI_TEMP1 "Text"        XPUI.SkinNoTrans.${XPUI_UNIQUEID}
+    StrCmp $XPUI_TEMP1 "Password"    XPUI.SkinNoTrans.${XPUI_UNIQUEID}
+    StrCmp $XPUI_TEMP1 "Listbox"     XPUI.SkinNoTrans.${XPUI_UNIQUEID}
+    StrCmp $XPUI_TEMP1 "Combobox"    XPUI.SkinNoTrans.${XPUI_UNIQUEID}
+    StrCmp $XPUI_TEMP1 "Droplist"    XPUI.SkinNoTrans.${XPUI_UNIQUEID}
+    
+    StrCmp $XPUI_TEMP1 "FileRequest" XPUI.SkinMulti.${XPUI_UNIQUEID}
+    StrCmp $XPUI_TEMP1 "DirRequest"  XPUI.SkinMulti.${XPUI_UNIQUEID}
+    
+      GetDlgItem $XPUI_TEMP1 $XPUI_HWND $R1
+      !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
+      Goto XPUI.SkinDone.${XPUI_UNIQUEID}
+      
+    XPUI.SkinNoTrans.${XPUI_UNIQUEID}:
+      GetDlgItem $XPUI_TEMP1 $XPUI_HWND $R1
+      !insertmacro XPUI_CONTROL_SKIN_PAGE_NOTRANS $XPUI_TEMP1
+      Goto XPUI.SkinDone.${XPUI_UNIQUEID}
+      
+    XPUI.SkinMulti.${XPUI_UNIQUEID}:
+      GetDlgItem $XPUI_TEMP1 $XPUI_HWND $R1
+      !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
+      IntOp $R1 $R1 + 1
+      GetDlgItem $XPUI_TEMP1 $XPUI_HWND $R1
+      !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
+      Goto XPUI.SkinDone.${XPUI_UNIQUEID}
+    
+    XPUI.SkinDone.${XPUI_UNIQUEID}:
+    
+    IntCmp $R0 $XPUI_TEMP1 0 XPUI.loop.setctl.${XPUI_UNIQUEID}
+    
+  Pop $R1
+  Pop $R0
+    
   SetBrandingImage /IMGID=1019 /RESIZETOFIT "$PLUGINSDIR\page.bmp"
   LockWindow off
   Push $XPUI_HWND
