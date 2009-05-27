@@ -369,7 +369,9 @@ Var /GLOBAL XPUI_NOABORTWARNING
   !verbose push
   !verbose ${XPUI_VERBOSE}
   InitPluginsDir
-  File `/oname=$PLUGINSDIR\${FILE}` `${FILE}`
+  IfFileExists "$PLUGINSDIR\${FILENAME}" +2
+    File `/oname=$PLUGINSDIR\${FILE}` `${FILE}`
+  
   !insertmacro XPUI_INSTALLOPTIONS_WRITE `${FILE}` `Settings` `RTL` `$(^RTL)`
   !verbose pop
 !macroend
@@ -378,7 +380,9 @@ Var /GLOBAL XPUI_NOABORTWARNING
   !verbose push
   !verbose ${XPUI_VERBOSE}
   InitPluginsDir
-  File `/oname=$PLUGINSDIR\${FILENAME}` `${FILE}`
+  IfFileExists "$PLUGINSDIR\${FILENAME}" +2
+    File `/oname=$PLUGINSDIR\${FILENAME}` `${FILE}`
+    
   !insertmacro XPUI_INSTALLOPTIONS_WRITE `${FILENAME}` `Settings` `RTL` `$(^RTL)`
   !verbose pop
 !macroend
@@ -1509,19 +1513,17 @@ ChangeUI all `${XPUI_UI}`
     FindWindow $XPUI_HWND `#32770` `` $HWNDPARENT
       
     GetDlgItem $XPUI_TEMP1 $XPUI_HWND 1040
-    !insertmacro XPUI_CONTROL_SKIN $XPUI_TEMP1
+    !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
     SendMessage $XPUI_TEMP1 0xC 0 `STR:${XPUI_${XPUI_UN}LICENSEPAGE_TEXT_TOP}`
     
     GetDlgItem $XPUI_TEMP1 $XPUI_HWND 1006
-    !insertmacro XPUI_CONTROL_SKIN $XPUI_TEMP1
+    !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_TEMP1
     
     GetDlgItem $XPUI_TEMP1 $XPUI_HWND 1034
     !insertmacro XPUI_CONTROL_SKIN_LIGHT $XPUI_TEMP1
     
     GetDlgItem $XPUI_TEMP1 $XPUI_HWND 1035
     !insertmacro XPUI_CONTROL_SKIN_LIGHT $XPUI_TEMP1
-    
-    !insertmacro XPUI_CONTROL_SKIN $XPUI_HWND
     
     !ifndef XPUI_${XPUI_UN}LICENSEPAGE_RADIOBUTTONS
       !ifndef XPUI_${XPUI_UN}LICENSEPAGE_CHECKBOX
@@ -1536,6 +1538,8 @@ ChangeUI all `${XPUI_UI}`
     !ifdef XPUI_${XPUI_UN}LICENSEPAGE_RADIOBUTTONS
     !insertmacro XPUI_INNERDIALOG_TEXT `${XPUI_${XPUI_UN}LICENSEPAGE_TEXT_BOTTOM}` 1006
     !endif
+    
+    !insertmacro XPUI_CONTROL_SKIN_PAGE $XPUI_HWND
     
     !insertmacro XPUI_PAGE_CUSTOMFUNCTION SHOW
     
