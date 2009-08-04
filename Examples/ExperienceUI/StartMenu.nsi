@@ -38,7 +38,7 @@
 ;--------------------------------
 ;Pages
 
-  !insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+  !insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
   !insertmacro XPUI_PAGE_COMPONENTS
   !insertmacro XPUI_PAGE_DIRECTORY
   

@@ -30,7 +30,7 @@
 ;--------------------------------
 ;Pages
 
-  !insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Docs\ExperienceUI\Index.htm"
+  !insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\..\..\Docs\ExperienceUI\Index.htm"
   Page custom CustomPageA
   !insertmacro XPUI_PAGE_COMPONENTS
   Page custom CustomPageB

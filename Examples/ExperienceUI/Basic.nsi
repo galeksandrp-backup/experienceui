@@ -31,7 +31,7 @@
 ;Pages
 
   ${Page} Welcome
-  ${LicensePage} "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+  ${LicensePage} "${XPUI_SYSDIR}\License.rtf"
   ${Page} Components
   ${Page} Directory
   ${Page} InstFiles

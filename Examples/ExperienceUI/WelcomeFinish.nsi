@@ -39,7 +39,7 @@
 ;Pages
 
   !insertmacro ${UI}_PAGE_WELCOME
-  !insertmacro ${UI}_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+  !insertmacro ${UI}_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
   !ifdef XPUI_INCLUDED
   !define ${UI}_FINISHPAGE_RUN        "$SYSDIR\Write.exe"
   !define ${UI}_FINISHPAGE_RUN_FILE   "$SYSDIR\Write.exe"
