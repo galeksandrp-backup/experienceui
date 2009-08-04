@@ -373,7 +373,7 @@ Var /GLOBAL XPUI_NOABORTWARNING
   !verbose push
   !verbose ${XPUI_VERBOSE}
   InitPluginsDir
-  IfFileExists "$PLUGINSDIR\${FILENAME}" +2
+  IfFileExists "$PLUGINSDIR\${FILE}" +2
     File `/oname=$PLUGINSDIR\${FILE}` `${FILE}`
   
   !insertmacro XPUI_INSTALLOPTIONS_WRITE `${FILE}` `Settings` `RTL` `$(^RTL)`
