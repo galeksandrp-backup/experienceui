@@ -10,7 +10,7 @@ SetCompress off
 
 Name "Select Language"
 Caption " "
-OutFile "${NSISDIR}\Contrib\ExperienceUI\LangDialog.exe"
+OutFile "$%TEMP%\LangDialog.exe"
 
 MiscButtonText "" "" "" OK
 !define XPUI_DISABLEBG
@@ -30,7 +30,7 @@ Pop $0
 StrCmp $0 "/CancelDialog" 0 +2
 Abort
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\INI\LangDlg.ini"
+File "${XPUI_SYSDIR}\INI\LangDlg.ini"
 WriteINIStr "$PLUGINSDIR\LangDlg.ini" "Field 1" ListItems "${XPUI_LANGINI_LIST_B}"
 StrCpy $XPUI_TEMP1 "${XPUI_LANGINI_LIST_B}"
 StrCpy $XPUI_HWND 0
