@@ -39,6 +39,10 @@
   !define XPUI_SYSDIR "${NSISDIR}\Contrib\ExperienceUI"
 !endif
 
+; Add include and plugin directories
+!addincludedir "${XPUI_SYSDIR}\..\..\Include"
+!addplugindir "${XPUI_SYSDIR}\..\..\Plugins"
+
 ; Do some pretty stuff
 
 !verbose 4
