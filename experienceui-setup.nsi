@@ -3,8 +3,10 @@ Name "ExperienceUI SDK"
 
 SetCompressor /final /solid lzma
 
+!define XPUI_ABORTWARNING
 !define XPUI_SYSDIR ".\Contrib\ExperienceUI"
 !include "${XPUI_SYSDIR}\XPUI.nsh"
+Caption "$(^Name) v${XPUI_VERSION} Setup"
 OutFile "experienceui-${XPUI_VERSION}.exe"
 InstallDir "$PROGRAMFILES\NSIS\ExperienceUI"
 InstallDirRegKey HKLM "Software\NSIS\ExperienceUI" ""
@@ -15,6 +17,7 @@ ${LicensePage} "Contrib\ExperienceUI\License.rtf"
 ${Page} Directory
 ${Page} InstConfirm
 ${Page} InstFiles
+${Page} Abort
 
 ${UnPage} Welcome2
 ${UnPage} UnConfirm
