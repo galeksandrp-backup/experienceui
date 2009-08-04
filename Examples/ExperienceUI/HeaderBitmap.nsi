@@ -25,7 +25,7 @@
 ;--------------------------------
 ;Interface Configuration
 
-  !define XPUI_HEADERIMAGE "${NSISDIR}\Contrib\ExperienceUI\Skins\Windows XP\Header.bmp"
+  !define XPUI_HEADERIMAGE "${XPUI_SYSDIR}\Skins\Windows XP\Header.bmp"
   ; might as well do a bottom image as well...
   !define XPUI_BOTTOMIMAGE ;we don't have to define a custom bottom image, the default is fine.
   !define XPUI_ABORTWARNING
@@ -33,7 +33,7 @@
 ;--------------------------------
 ;Pages
 
-  !insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+  !insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
   !insertmacro XPUI_PAGE_COMPONENTS
   !insertmacro XPUI_PAGE_DIRECTORY
   !insertmacro XPUI_PAGE_INSTFILES

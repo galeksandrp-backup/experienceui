@@ -23,7 +23,7 @@ installdir $PROGRAMFILES
 
 !insertmacro XPUI_PAGE_WELCOME
 !insertmacro XPUI_PAGE_WELCOME2
-!insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro XPUI_PAGE_COMPONENTS
 !insertmacro XPUI_PAGE_DIRECTORY
 !insertmacro XPUI_PAGE_INSTCONFIRM
@@ -35,7 +35,7 @@ installdir $PROGRAMFILES
 !insertmacro XPUI_PAGEMODE_UNINST
 !insertmacro XPUI_PAGE_WELCOME
 !insertmacro XPUI_PAGE_WELCOME2
-!insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro XPUI_PAGE_COMPONENTS
 !insertmacro XPUI_PAGE_DIRECTORY
 !insertmacro XPUI_PAGE_UNINSTCONFIRM_NSIS

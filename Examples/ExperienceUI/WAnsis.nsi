@@ -24,7 +24,7 @@ SetCompressor /SOLID /FINAL lzma
 !define       XPUI_PAGE_CUSTOMFUNCTION_PRE SetTime
 !insertmacro  XPUI_PAGE_WELCOME
 !insertmacro  XPUI_PAGE_WELCOME2
-!insertmacro  XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro  XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro  XPUI_PAGE_COMPONENTS
 !insertmacro  XPUI_PAGE_DIRECTORY
 !insertmacro  XPUI_PAGE_STARTMENU App $0
@@ -36,7 +36,7 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro  XPUI_PAGEMODE_UNINST
 !insertmacro  XPUI_PAGE_WELCOME
 !insertmacro  XPUI_PAGE_WELCOME2
-!insertmacro  XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro  XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro  XPUI_PAGE_COMPONENTS
 !insertmacro  XPUI_PAGE_DIRECTORY
 !insertmacro  XPUI_PAGE_STARTMENU UninstApp $0
@@ -44,9 +44,6 @@ SetCompressor /SOLID /FINAL lzma
 !insertmacro  XPUI_PAGE_INSTFILES
 !insertmacro  XPUI_PAGE_FINISH
 !insertmacro  XPUI_PAGE_ABORT
-
-Icon D:\Nullsoft\NSIS2\Contrib\Graphics\Icons\modern-install-colorful.ico
-UninstallIcon D:\Nullsoft\NSIS2\Contrib\Graphics\Icons\modern-uninstall-colorful.ico
 
 Name "ExperienceUI $\"Bryce$\" Milestone One WAnsis Test"
 OutFile WAnsis.exe
@@ -78,7 +75,7 @@ SectionEnd
 !define       XPUI_PAGE_CUSTOMFUNCTION_PRE ChangeSkin
 !insertmacro  XPUI_PAGE_WELCOME
 !insertmacro  XPUI_PAGE_WELCOME2
-!insertmacro  XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro  XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro  XPUI_PAGE_COMPONENTS
 !insertmacro  XPUI_PAGE_DIRECTORY
 !insertmacro  XPUI_PAGE_INSTCONFIRM
@@ -94,7 +91,7 @@ SectionEnd
 !define       XPUI_UNPAGE_CUSTOMFUNCTION_PRE un.ChangeSkin
 !insertmacro  XPUI_PAGE_WELCOME
 !insertmacro  XPUI_PAGE_WELCOME2
-!insertmacro  XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro  XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !insertmacro  XPUI_PAGE_COMPONENTS
 !insertmacro  XPUI_PAGE_DIRECTORY
 !insertmacro  XPUI_PAGE_INSTCONFIRM
@@ -111,7 +108,7 @@ FunctionEnd
 Function ChangeSkin
 LockWindow on
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\Skins\LCD\*.bmp"
+File "${XPUI_SYSDIR}\Skins\LCD\*.bmp"
 SetBrandingImage /IMGID=1302 /RESIZETOFIT $PLUGINSDIR\LeftLogo.bmp
 SetBrandingImage /IMGID=1039 /RESIZETOFIT $PLUGINSDIR\bottom.bmp
 SetBrandingImage /IMGID=1046 /RESIZETOFIT $PLUGINSDIR\Header.bmp
@@ -123,7 +120,7 @@ FunctionEnd
 Function un.ChangeSkin
 LockWindow on
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\Skins\LCD\*.bmp"
+File "${XPUI_SYSDIR}\Skins\LCD\*.bmp"
 SetBrandingImage /IMGID=1302 /RESIZETOFIT $PLUGINSDIR\LeftLogo.bmp
 SetBrandingImage /IMGID=1039 /RESIZETOFIT $PLUGINSDIR\bottom.bmp
 SetBrandingImage /IMGID=1046 /RESIZETOFIT $PLUGINSDIR\Header.bmp
@@ -144,7 +141,7 @@ FunctionEnd
 Function .onInit
   InitPluginsDir
   SetOutPath $PLUGINSDIR
-  File /oname=splash.gif "${NSISDIR}\Contrib\ExperienceUI\LargeLogo.gif"
+  File /oname=splash.gif "${XPUI_SYSDIR}\LargeLogo.gif"
   newAdvSplash::show 5000 1000 1000 -1 "$PLUGINSDIR\splash.gif"
 FunctionEnd
 

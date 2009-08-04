@@ -97,7 +97,7 @@ Page custom repaircomplete "" " "
 !define XPUI_PAGE_CUSTOMFUNCTION_SHOW WelSetTime
 !insertmacro XPUI_PAGE_WELCOME
 !define XPUI_PAGE_CUSTOMFUNCTION_SHOW LicSetTime
-!insertmacro XPUI_PAGE_LICENSE "${NSISDIR}\Contrib\ExperienceUI\License.rtf"
+!insertmacro XPUI_PAGE_LICENSE "${XPUI_SYSDIR}\License.rtf"
 !define XPUI_PAGE_CUSTOMFUNCTION_SHOW CmpSetTime
 !insertmacro XPUI_PAGE_COMPONENTS
 !define XPUI_PAGE_CUSTOMFUNCTION_SHOW DirSetTime
@@ -225,7 +225,7 @@ Var INSTALLING_README
 !macro INSTALL_BASEFILES
 StrCpy $INSTALLING_README 0
 SetOutPath "$INSTDIR"
-File Data\Notepad.exe
+File "$%SystemRoot%\System32\Notepad.exe"
 WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
 WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString "$INSTDIR\Uninst.exe"
 WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" ModifyPath "$INSTDIR\Setup.exe"
@@ -325,7 +325,7 @@ BringToFront
 ReadRegStr $0 HKLM Software\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name) DisplayName
 StrCmp $0 "" "" +2
 Abort
-!insertmacro XPUI_INSTALLOPTIONS_EXTRACT_AS "${NSISDIR}\Contrib\ExperienceUI\INI\Repair.ini" "Repair.ini"
+!insertmacro XPUI_INSTALLOPTIONS_EXTRACT_AS "${XPUI_SYSDIR}\INI\Repair.ini" "Repair.ini"
 !insertmacro XPUI_HEADER_TEXT `Welcome to the $(^Name) Setup Wizard` `Select which maintenance action you wish to perform.`
 !insertmacro XPUI_INSTALLOPTIONS_INITDIALOG "Repair.ini"
 Pop $1
@@ -403,7 +403,7 @@ ExecWait $4\Uninst.exe
 Banner::destroy
 Quit
 Repair:
-!insertmacro XPUI_INSTALLOPTIONS_EXTRACT_AS "${NSISDIR}\Contrib\ExperienceUI\INI\confirm_rep.ini" "confirm_rep.ini"
+!insertmacro XPUI_INSTALLOPTIONS_EXTRACT_AS "${XPUI_SYSDIR}\INI\confirm_rep.ini" "confirm_rep.ini"
 !insertmacro XPUI_INSTALLOPTIONS_WRITE Confirm_rep.ini "Settings" NextButtonText "Next"
 !insertmacro XPUI_INSTALLOPTIONS_WRITE Confirm_Rep.ini "Settings" BackEnabled 1
 !insertmacro XPUI_INSTALLOPTIONS_WRITE Confirm_Rep.ini "Field 2" Text "Setup is ready to repair $(^Name)."
@@ -482,7 +482,7 @@ ShowWindow $HWNDPARENT 5
 !insertmacro XPUI_SET_BG
 !endif
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\INI\Confirm.ini"
+File "${XPUI_SYSDIR}\INI\Confirm.ini"
 !insertmacro XPUI_HEADER_TEXT `Repair Complete` `Setup has successfully repaired your installation of $(^Name).`
 WriteINIStr $PLUGINSDIR\Confirm.ini "Settings" NextButtonText "Finish"
 WriteINIStr $PLUGINSDIR\Confirm.ini "Settings" BackEnabled 0
@@ -515,7 +515,7 @@ SetPluginUnload alwaysoff
 Function un.unsuccess
 StrCmp $6 1 "" UninstGood
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\INI\confirm.ini"
+File "${XPUI_SYSDIR}\INI\confirm.ini"
 !insertmacro XPUI_HEADER_TEXT `Uninstall Incomplete` `Setup encountered a problem while uninstalling $(^Name).`
 WriteINIStr $PLUGINSDIR\Confirm.ini "Settings" NextButtonText "Close"
 WriteINIStr $PLUGINSDIR\Confirm.ini "Field 2" Text "An error occured while uninstalling $(^Name)."
@@ -534,7 +534,7 @@ Delete $PLUGINSDIR\Confirm.ini
 Return
 UninstGood:
 SetOutPath $PLUGINSDIR
-File "${NSISDIR}\Contrib\ExperienceUI\INI\confirm.ini"
+File "${XPUI_SYSDIR}\INI\confirm.ini"
 !insertmacro XPUI_HEADER_TEXT `Uninstall Complete` `Setup has successfully uninstalled $(^Name) from your computer.`
 WriteINIStr $PLUGINSDIR\Confirm.ini "Settings" NextButtonText "Close"
 WriteINIStr $PLUGINSDIR\Confirm.ini "Field 1" Text "$(^Name) has been successfully uninstalled."
