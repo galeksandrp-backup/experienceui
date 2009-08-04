@@ -2002,7 +2002,7 @@ ChangeUI all `${XPUI_UI}`
   !ifndef XPUI_INTERNAL_SMPAGE_ARRAY_DEFINED
   !define XPUI_INTERNAL_SMPAGE_ARRAY_DEFINED
 
-  !include "${NSISDIR}\Include\NSISArray.nsh"
+  !include "NSISArray.nsh"
   ${Array} xpuiSM 1024 128
   ${ArrayFunc} Read
   ${ArrayFunc} Clear
