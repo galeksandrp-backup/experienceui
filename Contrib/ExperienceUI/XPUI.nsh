@@ -1,4 +1,4 @@
-; NSIS ExperienceUI User Interface version 1.11
+; NSIS ExperienceUI User Interface version 1.3.1
 ; Macro System and Main Logic
 ; Written by Dan Fuhry
 
@@ -33,7 +33,7 @@
 !verbose ${XPUI_VERBOSE}
 
 !define XPUI_INCLUDED
-!define XPUI_VERSION 1.11
+!define XPUI_VERSION 1.3.1
 
 !ifndef XPUI_SYSDIR
   !define XPUI_SYSDIR "${NSISDIR}\Contrib\ExperienceUI"
@@ -50,18 +50,18 @@
 ; my infamous (new) ASCII art
 !ifndef XPUI_SILENT
 !echo "\
-+-------------------------------------------------------------------------------------------------+$\n\
-|                                                                             /¯¯|  /¯¯|  /¯¯|    |$\n\
-| |¯¯¯¯¯¯¯|                         _                           |¯|  |¯| |¯| / / | / / | / / |    |$\n\
-| | |¯¯¯¯¯                         |_|                          | |  | | | |  ¯| |  ¯| |  ¯| |    |$\n\
-| |  ¯¯¯|   _  _        ___   ___   _   ___   ____    ____  ___ | |  | | | |   | |   | |   | |    |$\n\
-| | |¯¯¯    \\// |¯¯¯\ / __\ |  _| | | / __\ |  _  \ / __/ / __\| |__| | | |   | |   | |   | |    |$\n\
-| |  ¯¯¯¯¯| //\\ | __/ \___/ |_|   |_| \___/ |_| |_| \___\ \___/\______/ |_|   |_| O |_|   |_|    |$\n\
-|  ¯¯¯¯¯¯¯  ¯  ¯ |_|                                                       [ A better installer ] |$\n\
-+-------------------------------------------------------------------------------------------------+$\n"
++-----------------------------------------------------------------------------+$\n\
+|                                                                             |$\n\
+| |¯¯¯¯¯¯¯|                         _                           |¯|  |¯| |¯|  |$\n\
+| | |¯¯¯¯¯                         |_|                          | |  | | | |  |$\n\
+| |  ¯¯¯|   _  _        ___   ___   _   ___   ____    ____  ___ | |  | | | |  |$\n\
+| | |¯¯¯    \\// |¯¯¯\ / __\ |  _| | | / __\ |  _  \ / __/ / __\| |__| | | |  |$\n\
+| |  ¯¯¯¯¯| //\\ | __/ \___/ |_|   |_| \___/ |_| |_| \___\ \___/\______/ |_|  |$\n\
+|  ¯¯¯¯¯¯¯  ¯  ¯ |_|                                  [ A better installer ]  |$\n\
++-----------------------------------------------------------------------------+$\n"
 
 !echo `NSIS ExperienceUI User Interface version ${XPUI_VERSION}   $\n\
-       Copyright © 2004-2005 Dan Fuhry                            $\n\
+       Copyright © 2004-2009 Dan Fuhry                            $\n\
                                                                   $\n\
        Portions written by Joost Verburg                          $\n\
        Copyright © 2002-2004 Joost Verburg                        $\n\
