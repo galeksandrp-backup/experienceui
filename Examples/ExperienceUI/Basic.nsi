@@ -7,7 +7,12 @@
 ;--------------------------------
 ;Include ExperienceUI
 
-  !include "XPUI.nsh"
+  !ifdef XPUI_SYSDIR
+    !include "${XPUI_SYSDIR}\XPUI.nsh"
+  !else
+    ; just hope NSIS has XPUI.nsh installed
+    !include "XPUI.nsh"
+  !endif
 
 ;--------------------------------
 ;General
