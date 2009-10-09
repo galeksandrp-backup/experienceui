@@ -2426,7 +2426,7 @@ ChangeUI all `${XPUI_UI}`
     StrCmp $XPUI_ABORTED 1 0 +2
       Abort
     
-    ; SET THE XPUI LOCAL REBOOT FLAG
+    ; Set the ExUI local reboot flag
     StrCpy $XPUI_REBOOT 0
     
     !ifdef XPUI_${XPUI_UN}FINISHPAGE_REBOOT_FORCE
@@ -2502,7 +2502,11 @@ ChangeUI all `${XPUI_UI}`
     !endif
     GetDlgItem $XPUI_TEMP1 $HWNDPARENT 2
     SendMessage $XPUI_TEMP1 0xC `` `STR:$(^CancelBtn)`
+    !ifdef XPUI_${XPUI_UN}FINISHPAGE_CANCEL_ENABLE
     EnableWindow $XPUI_TEMP1 1
+    !else
+    EnableWindow $XPUI_TEMP1 0
+    !endif
     GetDlgItem $XPUI_TEMP1 $HWNDPARENT 3
     !ifdef XPUI_${XPUI_UN}FINISHPAGE_NO_REINSTALL
       EnableWindow $XPUI_TEMP1 0
@@ -2677,6 +2681,7 @@ ChangeUI all `${XPUI_UI}`
   !insertmacro XPUI_UNSET XPUI_UNFINISHPAGE_CHECKBOX_RUN
   !insertmacro XPUI_UNSET XPUI_UNFINISHPAGE_CHECKBOX_DOCS
   !insertmacro XPUI_UNSET XPUI_${XPUI_UN}FINISHPAGE_NOCLOSEBUTTON
+  !insertmacro XPUI_UNSET XPUI_${XPUI_UN}FINISHPAGE_CANCEL_ENABLE
   
   !undef XPUI_${XPUI_UN}FINISHPAGE_CAPTION
   !undef XPUI_${XPUI_UN}FINISHPAGE_TITLE
