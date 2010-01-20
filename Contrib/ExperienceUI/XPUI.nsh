@@ -1,8 +1,8 @@
-; NSIS ExperienceUI User Interface version 1.3.1
+; NSIS ExperienceUI User Interface version 1.3.2
 ; Macro System and Main Logic
 ; Written by Dan Fuhry
 
-; Copyright © 2004-2006 Dan Fuhry
+; Copyright © 2004-2009 Dan Fuhry
 ; Portions written by Joost Verburg
 ; Copyright © 2002-2004 Joost Verburg
 
@@ -33,7 +33,7 @@
 !verbose ${XPUI_VERBOSE}
 
 !define XPUI_INCLUDED
-!define XPUI_VERSION 1.3.1
+!define XPUI_VERSION 1.3.2
 
 !ifndef XPUI_SYSDIR
   !define XPUI_SYSDIR "${NSISDIR}\Contrib\ExperienceUI"
@@ -2919,6 +2919,9 @@ FindWindow $XPUI_TEMP1 `#32770` `` $HWNDPARENT
 
 !insertmacro XPUI_INNERDIALOG_TEXT `$(XPUI_UNINSTCONFIRMPAGE_NSIS_TEXT_TOP)` 1006
 !insertmacro XPUI_INNERDIALOG_TEXT `$(XPUI_UNINSTCONFIRMPAGE_NSIS_TEXT_FOLDER)` 1029
+!ifndef XPUI_NOLOCK
+LockWindow off
+!endif
 !insertmacro XPUI_PAGE_CUSTOMFUNCTION SHOW
 FunctionEnd
 
