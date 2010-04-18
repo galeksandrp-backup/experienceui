@@ -2,7 +2,7 @@
 ;Compatible with ExperienceUI 1.3.1
 
 ;Language: Portuguese (2070)
-;By Adriano Pereira
+;By Adriano Pereira <adrianopt2@gmail.com>
 
 ;--------------------------------
 
