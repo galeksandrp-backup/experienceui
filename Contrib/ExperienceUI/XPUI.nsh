@@ -627,10 +627,10 @@ ChangeUI all `${XPUI_UI}`
   ; WAnsis settings
   !ifdef XPUI_WANSIS
     !insertmacro XPUI_DEFAULT XPUI_WANSIS_SKIN Forum
-    !insertmacro XPUI_DEFAULT XPUI_LEFTLOGO               `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\LeftLogo.bmp`
+    !insertmacro XPUI_DEFAULT XPUI_LEFTLOGO               `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\leftlogo.bmp`
     !insertmacro XPUI_DEFAULT XPUI_BOTTOMIMAGE            ``
     !insertmacro XPUI_DEFAULT XPUI_UNBOTTOMIMAGE          ``
-    !insertmacro XPUI_DEFAULT XPUI_BOTTOMIMAGE_BMP        `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\Bottom.bmp`
+    !insertmacro XPUI_DEFAULT XPUI_BOTTOMIMAGE_BMP        `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\bottom.bmp`
     !insertmacro XPUI_DEFAULT XPUI_WANSIS_GEN             `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\gen.bmp`
     !insertmacro XPUI_DEFAULT XPUI_WANSIS_GENEX           `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\genex.bmp`
     !insertmacro XPUI_DEFAULT XPUI_WANSIS_HEADERIMAGE_BMP `${XPUI_SYSDIR}\Skins\${XPUI_WANSIS_SKIN}\header.bmp`
