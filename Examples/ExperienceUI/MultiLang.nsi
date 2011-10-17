@@ -49,11 +49,13 @@ installdir $PROGRAMFILES
 !insertmacro XPUI_LANGUAGE "French"
 !insertmacro XPUI_LANGUAGE "German"
 !insertmacro XPUI_LANGUAGE "PortugueseBR"
+!insertmacro XPUI_LANGUAGE "Russian"
 !insertmacro XPUI_LANGUAGE "Spanish"
 
 Function .onInit
-!insertmacro XPUI_LANGPAGE_DISPLAY
-WriteUninstaller $DESKTOP\MultiLangUninst.exe
+${LangDialog}
+;!insertmacro XPUI_LANGPAGE_DISPLAY
+;WriteUninstaller $DESKTOP\MultiLangUninst.exe
 FunctionEnd
 
 Function un.onInit
