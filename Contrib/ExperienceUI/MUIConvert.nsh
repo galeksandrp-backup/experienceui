@@ -2,7 +2,7 @@
 ; Converter script
 ; Implements support for MUI and UMUI defines into ExperienceUI
 
-; Copyright © 2005-2006 Dan Fuhry (dandaman32)
+; Copyright Â© 2005-2006 Dan Fuhry (dandaman32)
 
 !macro XPUI_PAGE_TITLE_CONVERT P
   !insertmacro XPUI_CONVERT XPUI_${P}PAGE_TITLE MUI_TEXT_${P}_TITLE
