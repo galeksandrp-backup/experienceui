@@ -28,7 +28,7 @@
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_TEXT_TOP "Добро пожаловать в мастер установки $(^Name)"
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_TEXT "Этот мастер проведет вас через установку $(^Name).\r\n\r\nРекомендуется закрыть все другие программы перед началом установки. Это позволит обновить необходимые системные файлы без перезагрузки компьютера.\r\n\r\n"
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_TITLE "Добро пожаловать"
-!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_SUBTITLE "Добро пожаловать в прогамму установки $(^Name)."
+!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_SUBTITLE "Добро пожаловать в программу установки $(^Name)."
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE_CAPTION " "
 
 !insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE_TEXT_TOP "Добро пожаловать в мастер удаления $(^Name)"
@@ -39,15 +39,15 @@
 
 ; WELCOME PAGE STYLE 2
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_TEXT_TOP "Добро пожаловать в NSIS мастер установки $(^Name)."
-!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_TEXT "Добро пожаловать в прогамму установки $(^Name).  $(^Name) будет установлено на ваш компьютер."
+!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_TEXT "Добро пожаловать в программу установки $(^Name).  $(^Name) будет установлено на ваш компьютер."
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_TITLE "Добро пожаловать"
-!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_SUBTITLE "Добро пожаловать в прогамму установки $(^Name)."
+!insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_SUBTITLE "Добро пожаловать в программу установки $(^Name)."
 !insertmacro XPUI_DEFAULT XPUI_WELCOMEPAGE2_CAPTION " "
 
 !insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_TEXT_TOP "Добро пожаловать в NSIS мастер удаления $(^Name)."
-!insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_TEXT "Добро пожаловать в прогамму удаления $(^Name).  $(^Name) будет удалено с вашего компьютера."
+!insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_TEXT "Добро пожаловать в программу удаления $(^Name).  $(^Name) будет удалено с вашего компьютера."
 !insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_TITLE "Добро пожаловать"
-!insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_SUBTITLE "Добро пожаловать в прогамму удаления $(^Name)."
+!insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_SUBTITLE "Добро пожаловать в программу удаления $(^Name)."
 !insertmacro XPUI_DEFAULT XPUI_UNWELCOMEPAGE2_CAPTION " "
 
 ; LICENSE PAGE
@@ -78,7 +78,7 @@
 !insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_RADIOBUTTONS_TEXT_ACCEPT "Я согласен с вышеупомянутыми условиями"
 !insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_RADIOBUTTONS_TEXT_DECLINE "Я не согласен с вышеупомянутыми условиями"
 !insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_TEXT_CHECKBOX "Я согласен с вышеупомянутыми условиями"
-!insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_SUBTITLE "Пожалуйста, просмотрите условия лицензии перед уалением $(^Name)."
+!insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_SUBTITLE "Пожалуйста, просмотрите условия лицензии перед удалением $(^Name)."
 !insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_TITLE "Лицензионное соглашение"
 !insertmacro XPUI_DEFAULT XPUI_UNLICENSEPAGE_TEXT_TOP "Нажмите Page Down для просмотра остальной части соглашения."
 !ifndef XPUI_UNLICENSEPAGE_RADIOBUTTONS
@@ -224,7 +224,7 @@
 !insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_TEXT_TOP "NSIS мастер удаления завершен"
 !insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_TEXT "Мастер удаления был прерван перед тем, как $(^Name) было полностью установлено.\r\n\r\nВаша система не была изменена.  Для установки этой программы позже, пожалуйста, запустите мастер установки снова.\r\n\r\n\r\n\r\n\r\nПожалуйста, нажмите Закрыть для выхода из мастера установки."
 !insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_TITLE "Удаление не завершено"
-!insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_SUBTITLE "Удаление $(^Name) не было зваершено успешно."
+!insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_SUBTITLE "Удаление $(^Name) не было завершено успешно."
 !insertmacro XPUI_DEFAULT XPUI_UNABORTPAGE_CAPTION ": Удаление отменено"
 
 ; +-----------+
